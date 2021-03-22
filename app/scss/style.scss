@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
 // Не понятно со шрифтами,подключен тот что на Фотошопе,но внешний вид вообще не такой.И не поставил вертикальную линию в кнопках те что в конце в хедере,не понимаю как
@@ -19,7 +20,7 @@
   }
 
   &__logo {
-    padding: 25px 20px;
+    padding: 28px 23px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -171,7 +172,7 @@
   &__button {
     left: 0;
     border: none;
-    background-color: #a3bbc8;
+    background-color: $cno;
     color: #ffffff;
     text-align: center;
     padding: 14px 18px;
@@ -200,6 +201,103 @@
     margin-right: 17px;
   }
 }
+
+.slider {
+  padding: 100px 0 90px;
+  background-color: $bg;
+
+  &__back {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    padding-left: 115px;
+  }
+
+  &__item {
+    background-image: url(../images/slider/fon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 99%;
+    display: flex !important;
+    justify-content: space-between;
+    padding: 127px 0 194px;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    max-width: 470px;
+    font-size: 72px;
+    line-height: 1;
+    color: $title;
+    text-transform: uppercase;
+    margin-bottom: 43px;
+  }
+
+  &__text {
+    max-width: 370px;
+    color: $accent;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 43px;
+  }
+
+  // или так отсктупить или топ задавать кнопке
+  &__text p {
+    margin-bottom: 43px;
+  }
+
+  &__link {
+    padding: 25px 18px 25px;
+    color: $backbody;
+    background-color: $cno;
+  }
+
+  &__link::after {
+    content: url(../images/slider/shape.svg);
+    margin-left: 58px;
+  }
+
+  &__img {
+    max-height: 264px;
+    margin-top: 80px;
+    padding-right: 115px;
+    // Тут без топ не как
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+
+    li {
+      margin-left: 10px;
+      button {
+        padding: 0;
+        background-color: #fde3cc;
+        width: 29px;
+        height: 29px;
+        border: none;
+        font-style: 11px;
+        border-radius: 50%;
+        color: $title;
+        outline: transparent;
+        transition: all .3s ease;
+        cursor: pointer;
+        &:hover {
+          background-color: $backbody;
+        }
+      }
+      &.slick-active {
+        color: #234969;
+        // не смог задать цвет
+      }
+    }
+  }
+
+}
+
+
 
 
 

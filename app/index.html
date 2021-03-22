@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
   <header class="header container">
     <nav class="header__nav">
       <ul class="header__inner">
@@ -44,14 +43,14 @@
         <li class="header__blog header__blog--sech">
           <a href="#" class="header__img" style="background-image: url('images/header/icon.svg')">
             <span class="sr-only">
-              открыть поиск товара
+              open product search
             </span>
           </a>
         </li>
         <li class="header__blog">
           <a href="#" class="header__img" style="background-image: url('images/header/heard.svg')">
             <span class="sr-only">
-              открыть понравившееся
+              open your favorite
             </span>
           </a>
           <span class="header__num">0</span>
@@ -59,7 +58,7 @@
         <li class="header__blog">
           <a href="#" class="header__img" style="background-image: url('images/header/shape.svg')">
             <span class="sr-only">
-              открыть мои покупки
+              open my purchases
             </span>
           </a>
           <span class="header__num">0</span>
@@ -67,7 +66,7 @@
         <li class="header__blog header__blog--menu">
           <a href="#" class="header__img" style="background-image: url('images/header/menu.svg')">
             <span class="sr-only">
-              открыть меню
+              open the menu
             </span>
           </a>
         </li>
@@ -76,9 +75,48 @@
   </header>
 
   <main class="main">
-    
-  </main>
+    <section class="slider container">
+      <div class="slider__inner slider__back">
+        <div class="slider__item">
+          <div class="slider__content">
+            <h1 class="slider__title">smart and trendy</h1>
+            <div class="slider__text">
+              <p>
+                Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+              </p>
+              <a class="slider__link" href="#">Shop Now</a>
+            </div>
+          </div>
+          <img class="slider__img" src="images/slider/tahta.png" alt="tahta img">
+        </div>
+        <div class="slider__item">
+          <div class="slider__content">
+            <h1 class="slider__title">smart and trendy</h1>
+            <div class="slider__text">
+              <p>
+                Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+              </p>
+              <a class="slider__link" href="#">Shop Now</a>
+            </div>
+          </div>
+          <img class="slider__img" src="images/slider/tahta.png" alt="tahta img">
+        </div>
+        <div class="slider__item">
+          <div class="slider__content">
+            <h1 class="slider__title">smart and trendy</h1>
+            <div class="slider__text">
+              <p>
+                Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+              </p>
+              <a class="slider__link" href="#">Shop Now</a>
+            </div>
+          </div>
+          <img class="slider__img" src="images/slider/tahta.png" alt="tahta img">
+        </div>
+      </div>
+    </section>
 
+  </main>
 
   <footer class="footer container__second">
     <div class="footer__top">
@@ -102,7 +140,7 @@
             </a>
           </li>
           <li class="footer__num">
-            <a class="footer__contact" href="mailtocontact@Glee.com">Email: contact@Glee.com</a>
+            <a class="footer__contact" href="mailto:contact@Glee.com">Email: contact@Glee.com</a>
           </li>
         </ul>
       </div>
@@ -152,10 +190,10 @@
           </p>
         </div>
         <form class="footer__form" action="#">
-          <input class="footer__input" type="email" placeholder="Email address" required>
+          <label class="sr-only" for="email">enter email</label>
+          <input class="footer__input" id="email" type="email" placeholder="Email address" required>
           <button class="footer__button" type="submit">Subscribe</button>
         </form>
-
       </div>
     </div>
     <div class="footer__blog">
@@ -165,14 +203,14 @@
       <ul class="footer__about">
         <li class="footer__place">
           <a class="footer__in" href="#">Home |</a>
-          </li>
-          <li class="footer__place">
+        </li>
+        <li class="footer__place">
           <a class="footer__in" href="#">About |</a>
-          </li>
-          <li class="footer__place">
+        </li>
+        <li class="footer__place">
           <a class="footer__in" href="#">Blog |</a>
-          </li>
-          <li class="footer__place">
+        </li>
+        <li class="footer__place">
           <a class="footer__in" href="#">Contact</a>
         </li>
       </ul>
