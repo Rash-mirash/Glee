@@ -2,39 +2,16 @@
 @import 'fonts';
 @import 'reset';
 @import 'libs';
+@import 'mixins';
 @import 'global';
 
-// Не понятно со шрифтами,подключен тот что на Фотошопе,но внешний вид вообще не такой.
-// Высоту стульям так и не задал
-
 .header {
-  padding: 51px 0 54px;
 
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  &__inner {
-    display: flex;
-  }
-
-  &__logo {
-    padding: 28px 23px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-  }
-
-  &__name {
-    color: $accent;
-  }
-
-  &__title {
-    font-size: 36px;
-    line-height: 1.6;
-    margin-left: 14px;
+    min-height: 171px;
   }
 
   &__menu {
@@ -45,67 +22,63 @@
     margin-right: 35px;
   }
 
-  &__link {
-    color: $accent;
-  }
-
-  &__user {
+  &__inner {
     display: flex;
-    padding: 84px 25px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
   }
 
-  &__blog {
-    height: 50px;
+  &__btn {
+    border-radius: 50%;
+    width: 50px;
+    padding: 16px;
+
+    &:hover {
+      background-color: #a3bbc8;
+      fill: $backbody;
+      stroke: $backbody;
+    }
+  }
+
+  &__uzer {
+    background-color: transparent;
+    margin: 0 20px;
     width: 50px;
     border-radius: 50%;
+    padding: 16px;
     position: relative;
 
-    &--sech {
-      background-color: #edf1f4;
+    &:hover {
+      stroke: $backbody;
     }
 
-    &--menu {
-      background-color: $cno;
+    &::after {
+      content: "";
+      background-color: $layt;
+      width: 1px;
+      height: 32px;
+      position: absolute;
+      margin-left: 36px;
+      bottom: 8px;
     }
   }
 
-  &__blog:not(:last-child) {
-    margin-right: 40px;
-  }
-
-  &__img {
-    padding: 10px 10px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    position: absolute;
-    left: 15px;
-    top: 15px;
-  }
-
-  &__vert::after {
-    content: "";
-    background-color: #fde7d3;
-    width: 1px;
-    height: 32px;
-    position: absolute;
-    margin-left: 45px;
-    bottom: -6px;
+  &__centered {
+    display: flex;
+    justify-content: space-between;
+    background-color: $bg;
+    margin: 0 20px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
   }
 
   &__num {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    padding: 4px;
     color: $title;
     background-color: $backbody;
     border-radius: 50%;
     text-align: center;
     font-size: 10px;
-    line-height: 16px;
     top: 8px;
     right: 8px
   }
@@ -115,14 +88,10 @@
   &__top {
     display: flex;
     justify-content: space-between;
-    padding: 80px 0 75px;
+    padding: 77px 0 75px;
   }
 
-  &__inner:not(:last-child) {
-    margin-right: 100px;
-  }
-
-  &__logo {
+  &__images {
     margin-bottom: 26px;
   }
 
@@ -134,60 +103,41 @@
     @extend %rubik-400;
   }
 
+  &__links--one {
+    text-transform: uppercase;
+  }
+
   &__num {
     max-width: 200px;
   }
 
   &__num:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
   &__title {
     font-size: 16px;
     line-height: 1.3;
     @extend %dmsans-700;
-    color: $blac;
+    color: $blak;
     text-transform: uppercase;
-    margin-bottom: 28px;
-    padding-top: 25px;
+    margin-bottom: 19px;
+    padding-top: 17px;
+    display: block;
     // без падинга топ,не смог отступить
   }
 
   &__item:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
 
   &__text {
     max-width: 270px;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     color: $ser;
     font-size: 14px;
     line-height: 1.7;
     @extend %rubik-400;
-  }
-
-  &__input {
-    background-color: #fef7f0;
-    max-width: 170px;
-    width: 100%;
-    padding: 13px;
-    border: none;
-
-    &::placeholder {
-      font-size: 12px;
-      color: $title;
-      @extend %dmsans-400;
-    }
-  }
-
-  &__button {
-    left: 0;
-    border: none;
-    background-color: $cno;
-    color: $backbody;
-    text-align: center;
-    padding: 14px 18px;
-    cursor: pointer;
   }
 
   &__blog {
@@ -215,9 +165,43 @@
   }
 }
 
+.form {
+  &__input {
+    background-color: $fef;
+    max-width: 170px;
+    width: 100%;
+    padding: 0 13px;
+    min-height: 42px;
+    border: none;
+    position: absolute;
+
+    &::placeholder {
+      font-size: 12px;
+      color: $title;
+      @extend %dmsans-400;
+    }
+  }
+
+  &__button {
+    left: 0;
+    border: none;
+    background-color: $cno;
+    color: $backbody;
+    text-align: center;
+    padding: 13px 15px;
+    cursor: pointer;
+    left: 170px;
+    position: relative;
+
+  }
+}
+
 .slider {
-  padding: 100px 0 90px;
-  background-color: $bg;
+
+  &__blog {
+    background-color: $bg;
+    padding: 100px 0 46px;
+  }
 
   &__back {
     max-width: 1400px;
@@ -229,10 +213,11 @@
   }
 
   &__item {
-    background-image: url(../images/slider/fon.png);
+    background-image: url('../images/slider/fon.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 99%;
+    // 99% Для того что бы не вылазил контент с другой стороны слайда,и по этому расширил контейнер,кнопка вылазила с права.
     display: flex !important;
     justify-content: space-between;
     padding: 127px 0 194px;
@@ -253,59 +238,50 @@
     color: $accent;
     font-size: 18px;
     line-height: 1.7;
-    margin-bottom: 43px;
+    margin-bottom: 70px;
   }
 
-  // или так отсктупить или топ задавать кнопке
-  &__text p {
-    margin-bottom: 43px;
-  }
 
   &__link {
-    padding: 25px 18px 25px;
+    padding: 22px 23px 20px;
     color: $backbody;
     background-color: $cno;
   }
 
   &__link::after {
-    content: url(../images/slider/shape.svg);
+    content: url('../images/slider/shape.svg');
     margin-left: 58px;
   }
 
   &__img {
     max-height: 264px;
-    margin-top: 80px;
+    margin-top: 50px;
     padding-right: 115px;
-    // Тут без топ не как
   }
 
   .slick-dots {
     display: flex;
     justify-content: center;
 
-    li {
-      margin-left: 10px;
+    li:not(:last-child) {
+      margin-right: 10px;
+    }
 
-      button {
-        padding: 0;
-        background-color: #fde3cc;
-        width: 29px;
-        height: 29px;
-        border: none;
-        font-size: 11px;
-        line-height: 1;
-        border-radius: 50%;
-        color: $title;
-        outline: transparent;
-        transition: all .3s ease;
-        cursor: pointer;
+    &.slick-active button {
+      background-color: $backbody;
+    }
 
-        &:hover {
-          background-color: $backbody;
-        }
-      }
+    button {
+      padding: 0;
+      background-color: $layt;
+      width: 29px;
+      height: 29px;
+      font-size: 11px;
+      line-height: 1;
+      border-radius: 50%;
+      color: $title;
 
-      &.slick-active button {
+      &:hover {
         background-color: $backbody;
       }
     }
@@ -313,12 +289,15 @@
 }
 
 .support {
-  padding: 46px 0;
-  background-color: #fef7f0;
+  background-color: $fef;
 
   &__list {
     display: flex;
     justify-content: space-between;
+    max-width: 1480px;
+    margin: 0 auto;
+    align-items: center;
+    min-height: 170px;
   }
 
   &__title {
@@ -338,6 +317,22 @@
   &__item {
     max-width: 210px;
     position: relative;
+
+    &--contact {
+      margin-left: 70px;
+    }
+
+    &--contact::before {
+      background-image: url('../images/contact/contact.svg');
+    }
+
+    &--delivery::before {
+      background-image: url('../images/contact/delivery.svg');
+    }
+
+    &--credit::before {
+      background-image: url('../images/contact/credit.svg');
+    }
   }
 
   &__item::before {
@@ -351,77 +346,56 @@
     width: 50px;
     height: 50px;
   }
+}
 
-  &__contact {
-    margin-left: 70px;
-  }
+.filter {
+  display: flex;
+  justify-content: space-between;
+  max-width: 380px;
+  margin: 0 auto;
+  margin-bottom: 76px;
 
-  &__contact::before {
-    background-image: url('../images/contact/contact.png');
-  }
+  &__btn {
+    background-color: transparent;
+    color: $ser;
+    font-size: 16px;
 
-  &__delivery::before {
-    background-image: url('../images/contact/delivery.png');
-  }
+    &:hover {
+      color: $blak;
+    }
 
-  &__credit::before {
-    background-image: url('../images/contact/credit.png');
+    &.mixitup-control-active {
+      color: $blak;
+      @extend %dmsans-700;
+    }
   }
 }
 
 .product {
-  padding: 75px 0 145px;
+  padding: 71px 0 100px;
 
   &__title {
-    @extend %dmsans-700;
-    font-size: 36px;
-    color: $blac;
+    margin-bottom: 30px;
     text-align: center;
-    margin-bottom: 37px;
-  }
-
-  &__filter {
-    display: flex;
-    justify-content: space-between;
-    max-width: 380px;
-    margin: 0 auto;
-    margin-bottom: 80px;
-  }
-
-  &__btn {
-    border: none;
-    background-color: transparent;
-    color: $ser;
-    font-size: 16px;
-    transition: all .3s ease;
-    outline: transparent;
-
-    &:hover {
-      color: $blac;
-      cursor: pointer;
-    }
-
-    &.control-active {
-      color: $blac;
-    }
   }
 
   &__content {
     display: grid;
-    grid-template-columns: 270px 270px 270px 270px;
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 30px;
+    margin-bottom: 149px;
   }
 
-  // Не смог поменять цвет картинки при ховере,она прописана в HTML
   &__item:hover {
     .product__hover {
       transform: translateY(0);
       transition: all .4s ease;
+      stroke: $backbody;
     }
   }
 
   &__item {
-    height: 380px;
+    min-height: 380px;
     background-color: $backbody;
     text-align: center;
     box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
@@ -437,19 +411,31 @@
     left: 0;
     right: 0;
     transform: translateY(1000%);
+    transition: translateY(1000%) .4s ease;
   }
 
+  &__btn,
   &__link {
     background-color: $backbody;
     box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
     padding: 20px;
     border-radius: 50%;
-    transition: all .4s ease;
+  }
+
+  &__btn {
+    padding: 18px;
+
+    &:hover {
+      background-color: $cno;
+    }
+  }
+
+  &__btn:not(:last-child) {
+    margin-right: 8px;
   }
 
   &__link:hover {
     background-color: $cno;
-    cursor: pointer;
   }
 
   &__link:not(:last-child) {
@@ -461,7 +447,10 @@
   }
 
   &__conteyn {
-    min-height: 300px
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__name {
@@ -476,22 +465,243 @@
     line-height: 2.5;
   }
 
+  &__fayl {
+    display: flex;
+  }
 
+  &__group {
+    min-height: 390px;
+    max-width: 870px;
+    width: 100%;
+    background-color: #feefe2;
+    position: relative;
 
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
 
+  &__lamp {
+    position: absolute;
+    left: 137px;
+    bottom: 87px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 235px;
+  }
+
+  &__in {
+    margin: 98px 0 0 388px;
+  }
+
+  &__names {
+    color: $title;
+    font-size: 26px;
+    line-height: 1.2;
+    @extend %dmsans-700;
+    margin-bottom: 17px;
+    max-width: 250px;
+  }
+
+  &__texts {
+    max-width: 335px;
+    font-size: 16px;
+    line-height: 1.9;
+    color: $title;
+    margin-bottom: 40px;
+  }
+
+  &__links {
+    padding: 20px 20px;
+    min-height: 60px;
+    border: solid 1px #b3b7b5;
+    color: #436372;
+    font-size: 15px;
+    line-height: 1;
+    border-radius: 8px;
+
+    &::after {
+      content: url('../images/slider/shape.svg');
+      stroke: black;
+      margin-left: 45px;
+    }
+  }
 }
 
+.desing {
+  &__title {
+    margin-bottom: 32px;
+    text-align: center;
+  }
 
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    margin-bottom: 86px;
+  }
 
+  &__list {
+    position: relative;
+    margin-bottom: 35px;
+  }
 
+  &__in {
+    position: absolute;
+    top: 33px;
+    left: 35px;
+  }
 
+  &__name {
+    color: $blak;
+    font-size: 20px;
+    @extend %dmsans-700;
+    max-width: 185px;
+    margin-bottom: 20px;
+  }
 
+  &__class {
+    color: $cno;
+    font-size: 16px;
+    @extend %dmsans-700;
+  }
+}
 
+.insights {
+  &__video {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 108px;
 
+    &::after {
+      content: url('../images/video/play.svg');
+    }
+  }
 
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 54px;
+  }
 
+  &__link {
+    font-size: 16px;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    margin-right: 18px;
+  }
 
+  &__link::after {
+    content: url('../images/insights/shape.svg');
+    position: absolute;
+    right: -18px;
+  }
 
+  &__blog {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+  }
 
+  &__in {
+    padding: 125px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 
-@import 'media';
+  &__list {
+    position: relative;
+    border-radius: 10px;
+  }
+
+  &__links {
+    min-height: 30px;
+    padding: 0 31px;
+    background-color: $cno;
+    color: $backbody;
+    @extend %poppins-700;
+    text-transform: uppercase;
+    border-radius: 14px;
+    position: absolute;
+    left: 28px;
+    top: 234px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__form {
+    padding: 35px 26px 0;
+    background-color: $backbody;
+    z-index: 1;
+  }
+
+  &__text {
+    margin-left: 4px;
+    min-height: 70px;
+    max-width: 300px;
+    color: #262626;
+    font-size: 18px;
+    @extend %dmsans-700;
+  }
+
+  &__last {
+    display: flex;
+    @extend %rubik-500;
+    font-size: 12px;
+    line-height: 2.5;
+    border-top: solid 1px #e0e0e0;
+    padding: 22px 0 28px 25px;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  &__when::before {
+    content: url('../images/insights/icon.svg');
+    position: absolute;
+    left: 0;
+    top: 25px;
+  }
+
+  &__when {
+    margin-right: 50px;
+  }
+
+  &__admin {
+    position: relative;
+  }
+
+  &__admin::before {
+    content: url('../images/insights/v1.svg');
+    position: absolute;
+    left: -20px;
+    top: 3px;
+  }
+
+  &__articles {
+    min-height: 438px;
+    background-color: $fef;
+    margin-top: -186px;
+    position: relative;
+    z-index: -1;
+  }
+
+  &__then {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 87px;
+  }
+
+  &__partners {
+    margin: 0 53px;
+  }
+}
